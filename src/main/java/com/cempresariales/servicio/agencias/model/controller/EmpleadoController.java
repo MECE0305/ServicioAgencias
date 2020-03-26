@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cempresariales.servicio.agencias.model.service.EmpleadoServiceImp;
@@ -15,27 +17,28 @@ import com.cempresariales.servicio.commons.model.entity.Empleado;
 
 
 @RestController
+@RequestMapping(value = "empleado")
 public class EmpleadoController {
 
 	@Autowired
 	private EmpleadoServiceImp empleadoService;
 	
-	@GetMapping("/listarEmpleados")
+	@GetMapping("/listar")
 	public List<Empleado> listarEmpleado(){
 		return empleadoService.findAll();
 	}
 	
-	@GetMapping("/empleado/{id}")
+	@GetMapping("/ver/{id}")
 	public Empleado verItem(@PathVariable Long id){
 		return empleadoService.findById(id);
 	}
 	
-	@PostMapping("/crearEmpleado/{empleado}")
-	public Empleado crear(@PathVariable Empleado empleado){
+	@PostMapping("/crear")
+	public Empleado crear(@RequestBody Empleado empleado){
 		return empleadoService.save(empleado);
 	}
 	
-	@DeleteMapping("/eliminarEmpleado/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	public void eliminar(@PathVariable Long id){
 		empleadoService.delete(id);
 	}
