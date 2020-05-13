@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cempresariales.servicio.agencias.model.dao.EmpleadoHasRolDao;
-import com.cempresariales.servicio.commons.model.entity.EmpleadoHasRol;
-import com.cempresariales.servicio.commons.model.entity.EmpleadoHasRolPK;
+import com.cempresariales.servicio.commons.model.entity.RolHasEmpleado;
+import com.cempresariales.servicio.commons.model.entity.RolHasEmpleadoPK;
 
 @Service
 public class EmpleadoHasRolServiceImp implements EmpleadoHasRolService {
@@ -16,22 +16,22 @@ public class EmpleadoHasRolServiceImp implements EmpleadoHasRolService {
 	private EmpleadoHasRolDao repo;
 
 	@Override
-	public List<EmpleadoHasRol> findAll() {
+	public List<RolHasEmpleado> findAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public EmpleadoHasRol findById(EmpleadoHasRolPK id) {
+	public RolHasEmpleado findById(RolHasEmpleadoPK id) {
 		return repo.findById(id).orElse(null);
 	}
 
 	@Override
-	public EmpleadoHasRol save(EmpleadoHasRol entidad) {
+	public RolHasEmpleado save(RolHasEmpleado entidad) {
 		return repo.save(entidad);
 	}
 
 	@Override
-	public void delete(EmpleadoHasRolPK id) {
+	public void delete(RolHasEmpleadoPK id) {
 		repo.deleteById(id);
 	}
 

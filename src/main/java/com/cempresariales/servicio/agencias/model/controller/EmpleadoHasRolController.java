@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cempresariales.servicio.agencias.model.service.EmpleadoHasRolServiceImp;
-import com.cempresariales.servicio.commons.model.entity.EmpleadoHasRol;
-import com.cempresariales.servicio.commons.model.entity.EmpleadoHasRolPK;
+import com.cempresariales.servicio.commons.model.entity.RolHasEmpleado;
+import com.cempresariales.servicio.commons.model.entity.RolHasEmpleadoPK;
 
 @RestController
 @RequestMapping(value = "empleadorol")
@@ -23,22 +23,22 @@ public class EmpleadoHasRolController {
 	private EmpleadoHasRolServiceImp repo;
 
 	@GetMapping("/listar")
-	public List<EmpleadoHasRol> listarAgencias() {
+	public List<RolHasEmpleado> listarAgencias() {
 		return repo.findAll();
 	}
 
 	@GetMapping("/ver/{id}")
-	public EmpleadoHasRol verAgencia(@PathVariable EmpleadoHasRolPK id) {
+	public RolHasEmpleado verAgencia(@PathVariable RolHasEmpleadoPK id) {
 		return repo.findById(id);
 	}
 
 	@PostMapping("/crear")
-	public EmpleadoHasRol crear(@RequestBody EmpleadoHasRol agencia) {
+	public RolHasEmpleado crear(@RequestBody RolHasEmpleado agencia) {
 		return repo.save(agencia);
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public void eliminar(@PathVariable EmpleadoHasRolPK id) {
+	public void eliminar(@PathVariable RolHasEmpleadoPK id) {
 		repo.delete(id);
 	}
 }

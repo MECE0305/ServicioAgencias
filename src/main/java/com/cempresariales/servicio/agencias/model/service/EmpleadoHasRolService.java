@@ -2,16 +2,16 @@ package com.cempresariales.servicio.agencias.model.service;
 
 import java.util.List;
 
-import com.cempresariales.servicio.commons.model.entity.EmpleadoHasRol;
-import com.cempresariales.servicio.commons.model.entity.EmpleadoHasRolPK;
+import com.cempresariales.servicio.commons.model.entity.RolHasEmpleado;
+import com.cempresariales.servicio.commons.model.entity.RolHasEmpleadoPK;
 
 public interface EmpleadoHasRolService {
 
-	public List<EmpleadoHasRol> findAll();
+	public List<RolHasEmpleado> findAll();
 
-	public EmpleadoHasRol findById(EmpleadoHasRolPK id);
+	public RolHasEmpleado findById(RolHasEmpleadoPK id);
 
-	public EmpleadoHasRol save(EmpleadoHasRol entidad);
+	public RolHasEmpleado save(RolHasEmpleado entidad);
 
-	public void delete(EmpleadoHasRolPK id);
+	public void delete(RolHasEmpleadoPK id);
 }
