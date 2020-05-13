@@ -16,7 +16,7 @@ import com.cempresariales.servicio.commons.model.entity.EmpleadoHasRol;
 import com.cempresariales.servicio.commons.model.entity.EmpleadoHasRolPK;
 
 @RestController
-@RequestMapping(value = "empleado")
+@RequestMapping(value = "empleadorol")
 public class EmpleadoHasRolController {
 
 	@Autowired
