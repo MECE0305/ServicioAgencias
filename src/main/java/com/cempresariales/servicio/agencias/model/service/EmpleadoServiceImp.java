@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cempresariales.servicio.agencias.model.dao.EmpleadoDao;
+import com.cempresariales.servicio.commons.model.entity.Agencia;
 import com.cempresariales.servicio.commons.model.entity.Empleado;
 
 
@@ -33,6 +34,11 @@ public class EmpleadoServiceImp implements IEmpleadoService {
 	@Override
 	public void delete(Long id) {
 		empleadoDao.deleteById(id);
+	}
+
+	@Override
+	public List<Empleado> findByAgenciaIdAgencia(Agencia agencia) {
+		return empleadoDao.findByAgenciaIdAgencia(agencia);
 	}
 
 }

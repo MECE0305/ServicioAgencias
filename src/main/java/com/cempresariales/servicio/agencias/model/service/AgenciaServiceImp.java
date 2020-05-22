@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cempresariales.servicio.agencias.model.dao.AgenciaDao;
 import com.cempresariales.servicio.commons.model.entity.Agencia;
+import com.cempresariales.servicio.commons.model.entity.Empresa;
 
 @Service
 public class AgenciaServiceImp implements IAgenciaService{
@@ -32,6 +33,11 @@ public class AgenciaServiceImp implements IAgenciaService{
 	@Override
 	public void delete(Long id) {
 		agenciaDao.deleteById(id);
+	}
+
+	@Override
+	public List<Agencia> findByEmpresaIdEmpresa(Empresa empresa) {
+		return agenciaDao.findByEmpresaIdEmpresa(empresa);
 	}
 
 }
