@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cempresariales.servicio.agencias.model.dao.EmpleadoHasRolDao;
+import com.cempresariales.servicio.commons.model.entity.Empleado;
 import com.cempresariales.servicio.commons.model.entity.RolHasEmpleado;
 import com.cempresariales.servicio.commons.model.entity.RolHasEmpleadoPK;
 
@@ -33,6 +34,16 @@ public class EmpleadoHasRolServiceImp implements EmpleadoHasRolService {
 	@Override
 	public void delete(RolHasEmpleadoPK id) {
 		repo.deleteById(id);
+	}
+
+	@Override
+	public List<RolHasEmpleado> findByEmpleado(Long id) {
+		return repo.findByEmpleado(id);
+	}
+
+	@Override
+	public List<Empleado> findByRol(Long id) {
+		return repo.findByRol(id);
 	}
 
 }

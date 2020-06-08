@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cempresariales.servicio.agencias.model.service.EmpleadoHasRolServiceImp;
+import com.cempresariales.servicio.commons.model.entity.Empleado;
 import com.cempresariales.servicio.commons.model.entity.RolHasEmpleado;
 import com.cempresariales.servicio.commons.model.entity.RolHasEmpleadoPK;
 
@@ -32,9 +33,19 @@ public class EmpleadoHasRolController {
 		return repo.findById(id);
 	}
 
+	@GetMapping("/findByEmpleado/{id}")
+	public List<RolHasEmpleado> findByEmpleado(@PathVariable Long id) {
+		return repo.findByEmpleado(id);
+	}
+
+	@GetMapping("/findByRol/{id}")
+	public List<Empleado> findByRol(@PathVariable Long id) {
+		return repo.findByRol(id);
+	}
+
 	@PostMapping("/crear")
-	public RolHasEmpleado crear(@RequestBody RolHasEmpleado agencia) {
-		return repo.save(agencia);
+	public RolHasEmpleado crear(@RequestBody RolHasEmpleado entidad) {
+		return repo.save(entidad);
 	}
 
 	@DeleteMapping("/eliminar/{id}")
