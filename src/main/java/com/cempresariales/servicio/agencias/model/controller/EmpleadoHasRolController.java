@@ -19,7 +19,7 @@ import com.cempresariales.servicio.commons.model.entity.RolHasEmpleado;
 import com.cempresariales.servicio.commons.model.entity.RolHasEmpleadoPK;
 
 @RestController
-@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS })
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.OPTIONS })
 @RequestMapping(value = "empleadorol")
 public class EmpleadoHasRolController {
 
