@@ -34,4 +34,11 @@ public class RolServiceImp implements IRolService {
 		rolDao.deleteById(id);
 	}
 
+	@Override
+	public List<Rol> findRolByArea(Long idArea) {
+		return rolDao.findRolByArea(idArea);
+	}
+	
+	
+
 }

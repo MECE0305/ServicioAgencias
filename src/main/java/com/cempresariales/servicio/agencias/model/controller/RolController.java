@@ -52,6 +52,13 @@ public class RolController {
 
 		return rolService.save(entidadDb);
 	}
+	
+	@GetMapping("/findRolByArea/{idArea}")
+	public List<Rol> findRolByArea(@PathVariable Long idArea) {
+		return rolService.findRolByArea(idArea);
+	}
+	
+	
 
 	@DeleteMapping("/eliminar/{id}")
 	public void eliminar(@PathVariable Long id) {

@@ -11,4 +11,8 @@ public interface IRolService {
 	public Rol findById(Long id);
 	public Rol save(Rol categoria);
 	public void delete(Long id);
+	
+	
+	public List<Rol> findRolByArea(Long idArea);
+	
 }
