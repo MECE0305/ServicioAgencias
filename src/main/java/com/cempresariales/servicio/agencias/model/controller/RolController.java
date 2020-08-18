@@ -1,5 +1,6 @@
 package com.cempresariales.servicio.agencias.model.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cempresariales.servicio.agencias.model.service.RolServiceImp;
-import com.cempresariales.servicio.commons.model.entity.Agencia;
 import com.cempresariales.servicio.commons.model.entity.Rol;
 
 @RestController
-@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.OPTIONS })
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
+		RequestMethod.OPTIONS })
 @RequestMapping(value = "rol")
 public class RolController {
 
@@ -52,13 +53,17 @@ public class RolController {
 
 		return rolService.save(entidadDb);
 	}
-	
+
 	@GetMapping("/findRolByArea/{idArea}")
 	public List<Rol> findRolByArea(@PathVariable Long idArea) {
 		return rolService.findRolByArea(idArea);
 	}
-	
-	
+
+	@PostMapping("/findRolByEmpleados")
+	@ResponseStatus(HttpStatus.CREATED)
+	public List<Rol> findRolByEmpleados(@RequestBody Collection<Long> expresion) {
+		return rolService.findRolByEmpleados(expresion);
+	}
 
 	@DeleteMapping("/eliminar/{id}")
 	public void eliminar(@PathVariable Long id) {

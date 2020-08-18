@@ -1,5 +1,6 @@
 package com.cempresariales.servicio.agencias.model.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.cempresariales.servicio.commons.model.entity.Rol;
@@ -14,5 +15,9 @@ public interface IRolService {
 	
 	
 	public List<Rol> findRolByArea(Long idArea);
+	
+	
+	public List<Rol> findRolByEmpleados(Collection<Long> expresion);
+
 	
 }

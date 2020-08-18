@@ -17,5 +17,7 @@ public interface EmpleadoHasRolService {
 	public void delete(RolHasEmpleadoPK id);
 
 	public List<RolHasEmpleado> findByEmpleado(Long id);
+
 	public List<Empleado> findByRol(Long id);
+
 }
