@@ -67,7 +67,8 @@ public class RolServiceImp implements IRolService {
 			}
 
 			StringBuilder queryString = new StringBuilder(
-					"select re.rol from RolHasEmpleado re where re.empleado.idEmpleado  in " + "(" + cadena + ")");
+					"select re.rol from RolHasEmpleado re where re.empleado.idEmpleado  in " + "(" + cadena
+							+ ") group by re.rol");
 
 			Query query = entityManager.createQuery(queryString.toString());
 
