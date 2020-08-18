@@ -1,5 +1,6 @@
 package com.cempresariales.servicio.agencias.model.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,8 +55,15 @@ public class EmpleadoController {
 	}
 
 	@PostMapping("/findByAgenciaIdAgencia")
+	@ResponseStatus(HttpStatus.CREATED)
 	public List<Empleado> findByAgenciaIdAgencia(@RequestBody Agencia agencia) {
 		return empleadoService.findByAgenciaIdAgencia(agencia);
+	}
+	
+	@PostMapping("/findEmpleadoByAgencias")
+	@ResponseStatus(HttpStatus.CREATED)
+	public List<Empleado> findEmpleadoByAgencias(@RequestBody Collection<Long> expresion) {
+		return empleadoService.findEmpleadoByAgencias(expresion);
 	}
 
 	@DeleteMapping("/eliminar/{id}")

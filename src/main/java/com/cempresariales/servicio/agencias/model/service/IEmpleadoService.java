@@ -1,5 +1,6 @@
 package com.cempresariales.servicio.agencias.model.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.cempresariales.servicio.commons.model.entity.Agencia;
@@ -15,4 +16,6 @@ public interface IEmpleadoService {
 	public void delete(Long id);
 
 	public List<Empleado> findByAgenciaIdAgencia(Agencia agencia);
+	
+	public List<Empleado> findEmpleadoByAgencias(Collection<Long> expresion);
 }
