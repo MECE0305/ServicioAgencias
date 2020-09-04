@@ -1,5 +1,6 @@
 package com.cempresariales.servicio.agencias.model.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cempresariales.servicio.agencias.model.service.AgenciaServiceImp;
 import com.cempresariales.servicio.commons.model.entity.Agencia;
 import com.cempresariales.servicio.commons.model.entity.Empresa;
+import com.cempresariales.servicio.commons.model.entity.Rol;
 
 @RestController
-@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.OPTIONS })
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
+		RequestMethod.OPTIONS })
 @RequestMapping(value = "agencia")
 public class AgenciaController {
 
@@ -62,4 +65,7 @@ public class AgenciaController {
 	public void eliminar(@PathVariable Long id) {
 		agenciaService.delete(id);
 	}
+	
+	
+	
 }

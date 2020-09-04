@@ -1,5 +1,6 @@
 package com.cempresariales.servicio.agencias.model.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cempresariales.servicio.agencias.model.service.AreaServiceImp;
 import com.cempresariales.servicio.commons.model.entity.Area;
+import com.cempresariales.servicio.commons.model.entity.Rol;
 
 @RestController
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
@@ -56,5 +58,11 @@ public class AreaController {
 	@DeleteMapping("/eliminar/{id}")
 	public void eliminar(@PathVariable Long id) {
 		repo.delete(id);
+	}
+
+	@PostMapping("/findAreasByRoles")
+	@ResponseStatus(HttpStatus.CREATED)
+	public List<Area> findAreasByRoles(@RequestBody Collection<Long> expresion) {
+		return repo.findAreasByRoles(expresion);
 	}
 }
