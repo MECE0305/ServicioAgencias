@@ -63,7 +63,7 @@ public class AreaServiceImp implements AreaService {
 			}
 
 			StringBuilder queryString = new StringBuilder(
-					"select a from Area a where a.idArea  in ( select p.areaIdArea.idArea from Rol p.idRol in (" + cadena + "))");
+					"select a from Area a where a.idArea  in (select p.areaIdArea.idArea from Rol where p.idRol in (" + cadena + "))");
 
 			Query query = entityManager.createQuery(queryString.toString());
 
